@@ -4,7 +4,7 @@ import carT from '../assets/icon-cart.svg'
 import Avatar from '../assets/image-avatar.png'
 import Cart from './Cart'
 
-const Navbar = ({ count }) => {
+const Navbar = ({ count, isClicked, isCleared, setIsCleared }) => {
     const [cart, setCart] = useState(true)
 
 
@@ -25,13 +25,19 @@ const Navbar = ({ count }) => {
 
             <div className='flex flex-row justify-end pl-24'>
                 <ul className='flex flex-row justify-center items-center gap-5'>
-                    <div onClick={handleCart}>
-                        {count > 0
+                    <div>
+                        {isClicked && count > 0
                             ? <span className='bg-[#FF7D1A] rounded-md px-1 py-[0px] text-white absolute right-[195px] top-[40px] z-10'>{count}</span>
                             : ''
                         }
                         <img src={carT} alt="Cart" className='hovered' onClick={handleCart} />
-                        {!cart ? <Cart cart={cart} count={count} /> : <div></div>}
+                        {!cart ? <Cart
+                            cart={cart}
+                            count={count}
+                            isClicked={isClicked}
+                            isCleared={isCleared}
+                            setIsCleared={setIsCleared}
+                        /> : null}
                     </div>
                     <img src={Avatar} alt="" style={{ width: '50px' }} className="hover:border-[#ff7d1a] rounded-full border-2 cursor-pointer" />
                 </ul>

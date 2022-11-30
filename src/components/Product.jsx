@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Image1 from '../assets/image-product-1.jpg'
 import Image2 from '../assets/image-product-2.jpg'
 import Image3 from '../assets/image-product-3.jpg'
@@ -7,7 +6,13 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
 
 
-const Product = ({ count, setCount }) => {
+const Product = ({ count, setCount, isClicked, setIsClicked, isCleared }) => {
+
+    const handleClick = () => {
+        if (isCleared) {
+            setIsClicked(!isClicked)
+        }
+    }
 
 
     const incrementCount = () => {
@@ -51,7 +56,7 @@ const Product = ({ count, setCount }) => {
                         <button className='px-5 p-2 text-yellow-600 text-xl ' onClick={incrementCount}><AiOutlinePlus /></button>
                     </div>
                     <div className="">
-                        <button type="button" className='text-white rounded-lg  p-1 px-10  bg-[#FF7D1A]'>
+                        <button type="button" onClick={handleClick} className='text-white rounded-lg  p-1 px-10  bg-[#FF7D1A]'>
                             Add to Cart
                         </button>
                     </div>
