@@ -21,6 +21,7 @@ function App() {
         isClicked={isClicked}
         setIsClicked={setIsClicked}
         isCleared={isCleared}
+        setIsCleared={setIsCleared}
       />
     </div>
   );

@@ -6,13 +6,12 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
 
 
-const Product = ({ count, setCount, isClicked, setIsClicked, isCleared }) => {
+const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsClicked }) => {
 
     const handleClick = () => {
-        if (isCleared) {
-            setIsClicked(!isClicked)
-        }
+        setIsClicked(!isClicked)
     }
+
 
 
     const incrementCount = () => {
