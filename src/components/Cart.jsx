@@ -8,6 +8,10 @@ const Cart = ({ cart, count, isClicked, setCount, isCleared, setIsCleared }) => 
         setIsCleared(!isCleared)
     }
 
+    if (isCleared) {
+        window.location.reload(false)
+    }
+
 
 
     return (
