@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+import { AiOutlinePlus, AiOutlineMinus, AiOutlineShoppingCart } from 'react-icons/ai'
+
+
 
 import Image1 from '../assets/image-product-1.jpg'
 import Image2 from '../assets/image-product-2.jpg'
@@ -21,10 +23,12 @@ const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsCli
     const [currentIndex, setCurrentIndex] = useState(0)
     const [openModal, setOpenModal] = useState(false)
 
+
     const handleOpenModal = index => {
         setCurrentIndex(index)
         setOpenModal(true)
     }
+
 
     const handleCloseModal = () => {
         setOpenModal(false)
@@ -66,7 +70,7 @@ const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsCli
     }
 
     return (
-        <div className='flex flex-row items-center'>
+        <div className='flex  flex-col md:flex-row items-center'>
             <Modal
                 handleCloseModal={handleCloseModal}
                 goToPrevious={goToPrevious}
@@ -81,42 +85,39 @@ const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsCli
                 <div className='flex justify-center items-center'>
                     <img src={`${slides[currentIndex]}`} alt="" className="cursor-pointer rounded-md max-w-[500px]" onClick={() => handleOpenModal(currentIndex)} />
                 </div>
-                <div className='flex justify-center items-center flex-row py-4 gap-[13px]'>
+                <div className='hidden md:flex justify-center items-center flex-row py-4 gap-[13px]'>
                     {slides.map((slide, index) => (
                         <div key={index} onClick={() => goToSlide(index)}>
                             <img src={slide} className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" alt="" />
                         </div>
                     ))}
                 </div>
-                {/* <div className='flex justify-center items-center flex-row py-4 gap-[13px]'>
-                    <img src={Image1} alt="" className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" />
-                    <img src={Image2} alt="" className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" />
-                    <img src={Image4} alt="" className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" />
-                    <img src={Image3} alt="" className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" />
-                </div> */}
             </div>
             <div className='flex flex-col rounded-lg '>
-                <p className='tracking-wide ml-10 uppercase text-[#FF7D1A] font-semibold'>Sneaker Company</p>
-                <div className="">Gabrielle <br /> Essence Eau <br /> De Parfum</div>
-                <div className="max-w-sm">
+                <p className='tracking-wide mb-5 uppercase font-kumbh text-[#f8974c] font-semibold'>Sneaker Company</p>
+                <h1 className='text-4xl mb-8 font-bold font-kumbh max-w-sm
+                '>Fall Limited Edition Sneakers</h1>
+                <p className="max-w-md mb-8 leading-normal font-kumbh text-gray-600 tracking-wide">
                     These low-profile sneakers are your perfect casual wear companion. Featuring a
                     durable rubber outer sole, they'll withstand everything the weather can offer.
+                </p>
+                <div className='flex flex-row space-x-10 items-center'>
+                    <h1 className='text-3xl font-bold'>$125.0</h1>
+                    <p className='bg-[#FFEDE0] rounded-md p-1 text-[#FF7D1A] font-semibold'>50%</p>
                 </div>
-                <div className="">
-                    <h1>$149.99</h1>
-                    <p>$169.99</p>
-                </div>
-                <div className='flex flex-row items-center'>
-                    <div className='flex justify-center items-center'>
-                        <button className='px-5 p-2 text-yellow-600 text-xl ' onClick={decrementCount}><AiOutlineMinus /></button>
+                <p className='line-through text-gray-400'>$250.0</p>
+                <div className='flex flex-row items-center mt-5 space-x-3'>
+                    <div className='flex  justify-center items-center bg-slate-100 rounded-md'>
+                        <button className='px-5 p-2 text-yellow-600 text-xl' onClick={decrementCount}><AiOutlineMinus /></button>
                         <span>{count}</span>
                         <button className='px-5 p-2 text-yellow-600 text-xl ' onClick={incrementCount}><AiOutlinePlus /></button>
                     </div>
-                    <div className="">
-                        <button type="button" onClick={handleClick} className='text-white rounded-lg  p-1 px-10  bg-[#FF7D1A]'>
+                    <button type="button" onClick={handleClick} className='text-white rounded-lg space-x-3 p-1 px-10 text-xl  bg-[#FF7D1A] justify-center items-center flex flex-row shadow-2xl shadow-[#d18951]'>
+                        <AiOutlineShoppingCart />
+                        <span>
                             Add to Cart
-                        </button>
-                    </div>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
