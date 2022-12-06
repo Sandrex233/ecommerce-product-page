@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
-import { BsArrowLeftSquare, BsArrowRightSquare } from 'react-icons/bs'
+
 import Image1 from '../assets/image-product-1.jpg'
 import Image2 from '../assets/image-product-2.jpg'
 import Image3 from '../assets/image-product-3.jpg'
 import Image4 from '../assets/image-product-4.jpg'
+import Modal from './Modal'
 
 
 
@@ -18,6 +19,16 @@ const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsCli
     ]
 
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [openModal, setOpenModal] = useState(false)
+
+    const handleOpenModal = index => {
+        setCurrentIndex(index)
+        setOpenModal(true)
+    }
+
+    const handleCloseModal = () => {
+        setOpenModal(false)
+    }
 
 
     const goToPrevious = () => {
@@ -56,18 +67,27 @@ const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsCli
 
     return (
         <div className='flex flex-row items-center'>
+            <Modal
+                handleCloseModal={handleCloseModal}
+                goToPrevious={goToPrevious}
+                goToNext={goToNext}
+                slides={slides}
+                currentIndex={currentIndex}
+                openModal={openModal}
+                goToSlide={goToSlide}
+            />
+
             <div className='flex flex-col  px-36'>
                 <div className='flex justify-center items-center'>
-                    <BsArrowLeftSquare onClick={goToPrevious} size={40} className="cursor-pointer" />
-                    <img src={`${slides[currentIndex]}`} alt="" className="rounded-md max-w-[500px]" />
-                    <BsArrowRightSquare onClick={goToNext} size={40} className="cursor-pointer" />
+                    <img src={`${slides[currentIndex]}`} alt="" className="cursor-pointer rounded-md max-w-[500px]" onClick={() => handleOpenModal(currentIndex)} />
                 </div>
                 <div className='flex justify-center items-center flex-row py-4 gap-[13px]'>
                     {slides.map((slide, index) => (
                         <div key={index} onClick={() => goToSlide(index)}>
                             <img src={slide} className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" alt="" />
                         </div>
-                    ))}</div>
+                    ))}
+                </div>
                 {/* <div className='flex justify-center items-center flex-row py-4 gap-[13px]'>
                     <img src={Image1} alt="" className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" />
                     <img src={Image2} alt="" className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" />

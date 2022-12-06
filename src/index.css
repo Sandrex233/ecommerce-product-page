@@ -5,58 +5,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
 
-
-.hovered {
-    cursor: pointer;
+.sliderWrap {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.hovered:hover {
-  filter: brightness(0);
+.galleryWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  max-width: 620px;
+  margin: 0 auto;
 }
 
-.active {
-    border: 2px solid #e77600;
+.btnNext:hover, .btnPrev:hover, .btnClose:hover {
+  opacity: 1;
 }
 
-.img_wrap {
-    width: 80px;
-    height: 80px;
-    border: 1px solid #eee;
-    cursor: pointer;
+.sliderWrap .btnClose {
+  top: 40px;
+  right: 40px;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-.left {
-    display: flex;
-    height: 50vh;
-}
-.left_1 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.img_wrap {
-    width: 80px;
-    height: 80px;
-    border: 1px solid #eee;
-    cursor: pointer;
-}
-.img_wrap img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
+.sliderWrap .btnPrev {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 40px;
 }
 
-.left_2 img {
-    width: 500px;
-    height: 100%;
-    object-fit: contain;
+.sliderWrap .btnNext {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 40px;
 }
-.active {
-    border: 2px solid #e77600;
+
+.sliderWrap .btnClose, .sliderWrap .btnPrev, .sliderWrap .btnNext {
+  position: fixed;
+  cursor: pointer;
+  opacity: 0.6;
+  color: #fff;
+  z-index: 9999;
 }
