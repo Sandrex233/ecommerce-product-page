@@ -87,7 +87,7 @@ const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsCli
                 <div className='flex'>
                     <BsArrowLeftSquare onClick={goToPrevious} size={40} className=" block md:hidden fixed cursor-pointer  text-white z-50 top-64" />
                     <BsArrowRightSquare onClick={goToNext} size={40} className=" block md:hidden  fixed cursor-pointer  text-white z-50 top-64 right-1" />
-                    <img src={`${slides[currentIndex]}`} alt="" className="cursor-pointer rounded-md max-w-full md:max-w-[500px] " onClick={() => handleOpenModal(currentIndex)} />
+                    <img src={`${slides[currentIndex]}`} alt="" className="cursor-pointer rounded-md max-w-[390px] max-h-[400px] md:max-h-[500px] md:max-w-[500px] " onClick={() => handleOpenModal(currentIndex)} />
                 </div>
                 <div className='hidden md:flex justify-center items-center flex-row py-4 gap-[13px]'>
                     {slides.map((slide, index) => (

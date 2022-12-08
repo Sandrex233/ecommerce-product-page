@@ -51,14 +51,13 @@ const Navbar = ({ count, setCount, isClicked, isCleared, setIsCleared }) => {
             <div className='flex flex-row justify-end md:pl-24'>
                 <ul className='flex flex-row justify-center items-center gap-5'>
                     <div>
-
                         {isClicked && count > 0
-                            ? <span className='bg-[#FF7D1A] rounded-md px-1 py-[0px] text-white absolute md:right-[195px] md:top-[40px] z-10'>
+                            ? <span className='bg-[#FF7D1A] rounded-md px-[2px] md:px-1 py-[0px] text-white absolute md:right-[195px] right-[70px] top-1 md:top-[40px] z-10'>
                                 {!isCleared ? count : null}
                             </span>
                             : null
                         }
-                        <img src={carT} alt="Cart" className='hovered' onClick={handleCart} />
+                        <img src={carT} alt="Cart" className='cursor-pointer hover:opacity-90' onClick={handleCart} />
                         {!cart ? <Cart
                             cart={cart}
                             count={count}
