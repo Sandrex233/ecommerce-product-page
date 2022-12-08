@@ -52,7 +52,7 @@ const Navbar = ({ count, setCount, isClicked, isCleared, setIsCleared }) => {
                 <ul className='flex flex-row justify-center items-center gap-5'>
                     <div>
                         {isClicked && count > 0
-                            ? <span className='bg-[#FF7D1A] rounded-md px-[2px] md:px-1 py-[0px] text-white absolute md:right-[195px] right-[70px] top-1 md:top-[40px] z-10'>
+                            ? <span className='bg-[#FF7D1A] rounded-md px-[2px] md:px-1 py-[0px] text-white absolute md:right-[195px] right-16 top-1 md:top-[40px] z-10'>
                                 {!isCleared ? count : null}
                             </span>
                             : null
