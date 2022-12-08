@@ -23,7 +23,7 @@ const Cart = ({ cart, count, isClicked, setCount, isCleared, setIsCleared }) => 
                     <p className="text-gray-500">Your cart is empty.</p>
                 </div>
                 :
-                <div className='absolute right-12 mt-5 max-w-md max-h-96 bg-white flex flex-col justify-center space-y-4 p-4 items-center shadow-[0_35px_60px_-15px_rgba(0,0,0,0.2)]  border-2 border-gray-600 rounded-md'>
+                <div className='absolute right-12 mt-5 max-w-md max-h-48 bg-white flex flex-col justify-center space-y-4 p-4 items-center shadow-[0_35px_60px_-15px_rgba(0,0,0,0.2)]  border-2 border-gray-600 rounded-md'>
                     <h1 className="font-bold">Cart</h1>
                     <div className="flex flex-row">
                         <img src={Image1} alt="" className="rounded-md max-w-[50px] mr-2" />
