@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrClose } from 'react-icons/gr';
 
 
-const Navbar = ({ count, setCount, isClicked, isCleared, setIsCleared }) => {
+const Navbar = ({ count, setCount, isClicked, setIsClicked }) => {
     const [cart, setCart] = useState(true)
     const [nav, setNav] = useState(false);
     const handleClick = () => setNav(!nav)
@@ -53,18 +53,16 @@ const Navbar = ({ count, setCount, isClicked, isCleared, setIsCleared }) => {
                     <div>
                         {isClicked && count > 0
                             ? <span className='bg-[#FF7D1A] rounded-md px-[2px] md:px-1 py-[0px] text-white absolute md:right-[195px] right-16 top-1 md:top-[40px] z-10'>
-                                {!isCleared ? count : null}
+                                {count}
                             </span>
                             : null
                         }
                         <img src={carT} alt="Cart" className='cursor-pointer hover:opacity-90' onClick={handleCart} />
                         {!cart ? <Cart
-                            cart={cart}
                             count={count}
-                            isClicked={isClicked}
-                            isCleared={isCleared}
-                            setIsCleared={setIsCleared}
                             setCount={setCount}
+                            isClicked={isClicked}
+                            setIsClicked={setIsClicked}
                         /> : null}
                     </div>
                     <img src={Avatar} alt="" style={{ width: '50px' }} className="hover:border-[#ff7d1a] rounded-full border-2 cursor-pointer" />

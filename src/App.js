@@ -5,7 +5,6 @@ import Product from './components/Product.jsx';
 function App() {
   const [count, setCount] = useState(0)
   const [isClicked, setIsClicked] = useState(false)
-  const [isCleared, setIsCleared] = useState(false)
 
 
 
@@ -13,17 +12,15 @@ function App() {
     <div>
       <Navbar
         count={count}
+        setCount={setCount}
         isClicked={isClicked}
-        isCleared={isCleared}
-        setIsCleared={setIsCleared}
+        setIsClicked={setIsClicked}
       />
       <Product
         count={count}
         setCount={setCount}
         isClicked={isClicked}
         setIsClicked={setIsClicked}
-        isCleared={isCleared}
-        setIsCleared={setIsCleared}
       />
     </div>
   );

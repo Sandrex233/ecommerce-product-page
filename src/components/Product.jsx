@@ -12,7 +12,7 @@ import Modal from './Modal'
 
 
 
-const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsClicked }) => {
+const Product = ({ count, setCount, isClicked, setIsClicked }) => {
 
     const slides = [
         Image1,
@@ -72,6 +72,10 @@ const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsCli
         }
     }
 
+    const handleSelect = index => {
+        console.log(index)
+    }
+
     return (
         <div className='flex flex-col md:flex-row items-center'>
             <Modal
@@ -92,7 +96,7 @@ const Product = ({ count, setCount, isCleared, setIsCleared, isClicked, setIsCli
                 <div className='hidden md:flex justify-center items-center flex-row py-4 gap-[13px]'>
                     {slides.map((slide, index) => (
                         <div key={index} onClick={() => goToSlide(index)}>
-                            <img src={slide} className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" alt="" />
+                            <img src={slide} onSelect={handleSelect} className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" alt="" />
                         </div>
                     ))}
                 </div>
