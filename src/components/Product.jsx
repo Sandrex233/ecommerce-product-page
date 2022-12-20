@@ -72,9 +72,6 @@ const Product = ({ count, setCount, isClicked, setIsClicked }) => {
         }
     }
 
-    const handleSelect = index => {
-        console.log(index)
-    }
 
     return (
         <div className='flex flex-col md:flex-row items-center'>
@@ -89,16 +86,29 @@ const Product = ({ count, setCount, isClicked, setIsClicked }) => {
             />
             <div className='flex flex-col  md:px-36'>
                 <div className='flex'>
-                    <BsArrowLeftSquare onClick={goToPrevious} size={40} className=" block md:hidden fixed cursor-pointer  text-white z-50 top-64" />
-                    <BsArrowRightSquare onClick={goToNext} size={40} className=" block md:hidden  fixed cursor-pointer  text-white z-50 top-64 right-1" />
+                    <BsArrowLeftSquare onClick={goToPrevious} size={40} className="block md:hidden fixed cursor-pointer  text-white z-50 top-64" />
+                    <BsArrowRightSquare onClick={goToNext} size={40} className=" block md:hidden fixed cursor-pointer  text-white z-50 top-64 right-1" />
                     <img src={`${slides[currentIndex]}`} alt="" className="cursor-pointer rounded-md max-w-[390px] max-h-[400px] md:max-h-[500px] md:max-w-[500px] " onClick={() => handleOpenModal(currentIndex)} />
                 </div>
                 <div className='hidden md:flex justify-center items-center flex-row py-4 gap-[13px]'>
-                    {slides.map((slide, index) => (
+                    {/* {slides.map((slide, index) => (
                         <div key={index} onClick={() => goToSlide(index)}>
-                            <img src={slide} onSelect={handleSelect} className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" alt="" />
+                            <img src={slide} className="rounded-md max-w-[115px] cursor-pointer hover:opacity-60" alt="" />
                         </div>
-                    ))}
+                    ))} */}
+                    <div onClick={() => goToSlide(0)} className={currentIndex === 0 ? "rounded-lg border-[3px] border-[#ff7d1a]" : ""}>
+                        <img src={Image1} className={currentIndex === 0 ? "max-w-[115px] cursor-pointer opacity-40" : "rounded-md max-w-[115px]  cursor-pointer hover:opacity-60"} alt="Image1" />
+                    </div>
+                    <div onClick={() => goToSlide(1)} className={currentIndex === 1 ? "rounded-lg border-[3px] border-[#ff7d1a]" : ""}>
+                        <img src={Image2} className={currentIndex === 1 ? "max-w-[115px]  cursor-pointer opacity-40" : "rounded-md max-w-[115px]  cursor-pointer hover:opacity-60"} alt="Image2" />
+                    </div>
+                    <div onClick={() => goToSlide(2)} className={currentIndex === 2 ? "rounded-lg border-[3px] border-[#ff7d1a]" : ""}>
+                        <img src={Image3} className={currentIndex === 2 ? "max-w-[115px]  cursor-pointer opacity-40" : "rounded-md max-w-[115px]  cursor-pointer hover:opacity-60"} alt="Image3" />
+                    </div>
+                    <div onClick={() => goToSlide(3)} className={currentIndex === 3 ? "rounded-lg border-[3px] border-[#ff7d1a]" : ""}>
+                        <img src={Image4} className={currentIndex === 3 ? "max-w-[115px] cursor-pointer opacity-40" : "rounded-md max-w-[115px]  cursor-pointer hover:opacity-60"} alt="Image4" />
+                    </div>
+
                 </div>
             </div>
             <div className='flex flex-col rounded-lg mt-6 md:mt-0 p-3 md:p-0'>

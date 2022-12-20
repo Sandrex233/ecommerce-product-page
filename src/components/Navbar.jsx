@@ -65,7 +65,7 @@ const Navbar = ({ count, setCount, isClicked, setIsClicked }) => {
                             setIsClicked={setIsClicked}
                         /> : null}
                     </div>
-                    <img src={Avatar} alt="" style={{ width: '50px' }} className="hover:border-[#ff7d1a] rounded-full border-2 cursor-pointer" />
+                    <img src={Avatar} alt="" style={{ width: '50px' }} className="hover:border-[#ff7d1a] border-white rounded-full border-2 cursor-pointer" />
                 </ul>
             </div>
         </div>
